@@ -1,7 +1,20 @@
 <?php
+
 namespace General;
 include "core/app_core.php";
-$core=new app_core();
 use app\Controlador\Controlador;
-$C=new Controlador;
-$C->iniciarApp();
+class index {
+
+    function __construct() {
+        $this->inicializarApp();
+    }
+
+    private function inicializarApp() {
+        $core = new app_core();
+        $C = new Controlador;
+        $C->iniciarApp();
+    }
+
+}
+
+new index;

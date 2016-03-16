@@ -1,6 +1,6 @@
 // JavaScript Document 
 $(function () {
-    //inicializarFormulario();
+    inicializarFormulario();
     $('#personal').on('submit', function () {
         if (validarFormulario()) {
             if ($('#emp_conse').val() === '') {
@@ -18,7 +18,8 @@ $(function () {
 });
 var inicializarFormulario = function () {
     $('#emp_conse').hide();
-    consultarEmpleado();
+    console.log('inicializar');
+    //consultarEmpleado();
     $('#cmdNuevo,#cmdCancelar').on('click', function () {
         $('#personal')[0].reset();
     });
