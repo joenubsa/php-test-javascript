@@ -1,17 +1,20 @@
 <?php
 
 namespace General;
-include "core/app_core.php";
+
+include "core/ini.php";
+
 use app\Controlador\Controlador;
+
 class index {
 
     function __construct() {
+        new ini();
         $this->inicializarApp();
     }
 
     private function inicializarApp() {
-        $core = new app_core();
-        $C = new Controlador;
+        $C = new Controlador(true);
         $C->iniciarApp();
     }
 

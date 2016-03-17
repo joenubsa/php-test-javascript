@@ -1,28 +1,25 @@
 <?php
 
-namespace General;
-use core\system\Server;
+namespace core;
 
-class app_core {
-    protected $server;
-    function __construct() {
-        $this->registrarClases();
-        $this->server = new Server();
+use app\Controlador\inicio;
+
+session_start();
+
+use core\system\Compilador;
+
+abstract class app_core extends Compilador {
+
+    function __construct($auth = false) {
+        $auth ? true : die('Access Denied');
+        parent::__construct(true);
     }
 
-    private function registrarClases() {
-        //print_r($_SERVER['REQUEST_URI']);
-        spl_autoload_register(function($className) {
-            if (!file_exists($className . ".php")) {
-                throw new \Exception("La clase " . $className . " no pudo ser encontrada");
-            }
-            include $className . ".php";
-        });
-        return true;
-    }
-
-    private function registrarGlobales() {
-
+    protected function iniciarModulo($modulo) {
+        $modulos=[
+            "inicio" => "app\\Controlador\\inicio\\inicioControl"
+        ];
+        return $modulos[$modulo];
     }
 
 }

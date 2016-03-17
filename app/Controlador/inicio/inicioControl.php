@@ -1,16 +1,16 @@
 <?php
 
-namespace app\Controlador;
+namespace app\Controlador\inicio;
 
 use app\Modelo\inicioController;
 
-class inicioControl extends Controlador{
-
-    function __construct() {
-        
+class inicioControl {
+    private $Controlador;
+    function __construct($Controlador = null) {
+        $this->Controlador = $Controlador;
     }
-    
-    function cargarRouter(){
+
+    function cargarRouter() {
         
     }
 

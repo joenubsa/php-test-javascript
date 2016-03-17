@@ -1,16 +1,17 @@
 <?php
-namespace core\system;
+namespace core\system\globals;
 
-class Server{
+class Cookie{
     
     private $s;
     
-    function __construct(){
+    function __construct($auth = false){
+        $auth ? true : die('Access Denied');
         $this->fetch();
-        print_r($this->s);
+        //print_r($this->s);
     }
     private function fetch(){
-        foreach($_SERVER as $llave => $valor){
+        foreach($_COOKIE as $llave => $valor){
             $this->s[$llave]=$valor;
         }
     }
